@@ -25,7 +25,7 @@ int main()
 void menu()
 {
 	int op = 0;
-	while (op != 7) {
+	while (op != 6) {
 		system("cls"); // somente no windows
 		cout << "Menu Lista Linear";
 		cout << endl << endl;
@@ -103,5 +103,30 @@ void inserirElemento()
 
 void buscarElemento()
 {
+	int presentes[MAX]{};
+	int elemento = 0;
+	int posPresentes = 0;
+	bool validador = false;
+
+	cout << "Digite o elemento que deseja buscar: ";
+	cin >> elemento;
+
+	for (int n = 0; n < nElementos; n++) {
+		if (elemento == lista[n]) {
+			presentes[posPresentes] = n;
+			validador = true;
+			posPresentes++;
+		}
+	}
+
+	if (validador == true) {
+		cout << "Presente nas posicoes: ";
+		for (int n = 0; n < posPresentes; n++) {
+			cout << presentes[n] << endl;
+		}
+	}
+	else {
+		cout << "Elemento nao encontrado! \n";
+	}
 
 }
